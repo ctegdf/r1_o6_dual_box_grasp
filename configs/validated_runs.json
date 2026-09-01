@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "validation_server": "Isaac Lab validation host",
+    "captured_on": "2026-08-28",
+    "auto_clamp_sha256": "02536253d725fe15314af60db28bcda2f2748ce15ba93e456ffce5cafdec207a",
+    "curobo_configs": "Exact validated copies after normalizing the project root to __PROJECT_ROOT__",
+    "curobo_template_sha256": {
+      "r1_o6.yml": "ef694f079f0e73d4023b9cc2027d24bf1e6720534977fa46f9dba6a90b3ca0b7",
+      "r1_o6_left.yml": "a3d42872755ef73eda0cb69ff3b84181d9915a01d468fe7b07f303b5a5596a8f",
+      "r1_o6_right.yml": "4f5116e41a8a482b0af5d712d10f6a44b19c02ada8110528717efba88e5de61b"
+    }
+  },
+  "profiles": {
+    "courier_box_m": {
+      "baseline": "rootback3cm-force10p5n-v41",
+      "evidence": "artifacts/auto_clamp_20260723_rootback3cm_force10p5n_v41/server.log",
+      "object_initial_world_x_m": 0.27,
+      "robot_root_x_offset_m": -0.03,
+      "clamp_x_offset_m": -0.03,
+      "force_target_n": 10.5,
+      "result": "done(status=lifted)"
+    },
+    "foam_box": {
+      "baseline": "flat-palm-v19",
+      "evidence": "runs/foam_box_flat_v19_lifted/sensor_data.jsonl",
+      "object_initial_world_x_m": 0.295,
+      "robot_root_x_offset_m": -0.03,
+      "clamp_x_offset_m": -0.03,
+      "force_target_n": 11.0,
+      "actual_rise_m": 0.1989,
+      "result": "done(status=lifted)",
+      "evidence_limit": "The server.log was deleted with the server run directory; launch offsets are retained from the server launch convention and adjacent run logs."
+    }
+  }
+}

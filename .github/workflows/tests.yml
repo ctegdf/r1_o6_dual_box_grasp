@@ -1,0 +1,21 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run pure control and layout tests
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Compile project sources
+        run: >-
+          python3 -m compileall -q auto_clamp.py pose_grasp_server.py
+          pose_grasp_cli.py r1_o6_scene_cfg.py delivery_objects_cfg.py
+          scripts tests

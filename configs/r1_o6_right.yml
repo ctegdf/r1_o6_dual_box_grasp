@@ -1,0 +1,291 @@
+## R1-o6 RIGHT arm cuRobo v2 robot configuration
+## 5 DOF planning space: right arm only
+## Left arm joints locked (positions updated at runtime before building planner)
+robot_cfg:
+  kinematics:
+    format_version: 2.0
+    urdf_path: "__PROJECT_ROOT__/R1-o6.urdf"
+    asset_root_path: "__PROJECT_ROOT__"
+    base_link: "pelvis_link"
+    tool_frames:
+      - "rh_hand_base_link"
+    use_global_cumul: true
+
+    # All 13 collision links kept — inactive left arm still participates
+    # in self-collision checking against the active right arm.
+    collision_link_names:
+      - pelvis_link
+      - waist_roll_link
+      - waist_yaw_link
+      - left_shoulder_pitch_link
+      - left_shoulder_roll_link
+      - left_shoulder_yaw_link
+      - left_elbow_link
+      - lh_hand_base_link
+      - right_shoulder_pitch_link
+      - right_shoulder_roll_link
+      - right_shoulder_yaw_link
+      - right_elbow_link
+      - rh_hand_base_link
+
+    mesh_link_names:
+      - pelvis_link
+      - waist_roll_link
+      - waist_yaw_link
+      - left_shoulder_pitch_link
+      - left_shoulder_roll_link
+      - left_shoulder_yaw_link
+      - left_elbow_link
+      - lh_hand_base_link
+      - right_shoulder_pitch_link
+      - right_shoulder_roll_link
+      - right_shoulder_yaw_link
+      - right_elbow_link
+      - rh_hand_base_link
+
+    collision_sphere_buffer: 0.005
+    collision_spheres:
+      # --- Torso ---
+      pelvis_link:
+        - center: [0.025, 0.0, -0.045]
+          radius: 0.100
+        - center: [0.035, 0.0, -0.115]
+          radius: 0.075
+      waist_roll_link:
+        - center: [0.0, 0.0, -0.045]
+          radius: 0.060
+      waist_yaw_link:
+        - center: [-0.020, 0.0, 0.050]
+          radius: 0.095
+        - center: [-0.020, 0.0, 0.145]
+          radius: 0.100
+        - center: [-0.020, 0.0, 0.235]
+          radius: 0.090
+
+      # --- Left arm (locked, collision only) ---
+      left_shoulder_pitch_link:
+        - center: [0.0, 0.025, -0.015]
+          radius: 0.055
+        - center: [0.0, 0.070, -0.015]
+          radius: 0.052
+      left_shoulder_roll_link:
+        - center: [-0.034, 0.003, -0.020]
+          radius: 0.060
+        - center: [-0.034, 0.003, -0.065]
+          radius: 0.060
+        - center: [-0.034, 0.003, -0.105]
+          radius: 0.046
+      left_shoulder_yaw_link:
+        - center: [0.010, -0.004, -0.025]
+          radius: 0.054
+        - center: [0.012, -0.004, -0.070]
+          radius: 0.056
+        - center: [0.016, 0.010, -0.108]
+          radius: 0.046
+      left_elbow_link:
+        - center: [0.005, -0.027, -0.007]
+          radius: 0.050
+        - center: [0.045, -0.027, -0.007]
+          radius: 0.052
+        - center: [0.085, -0.027, -0.007]
+          radius: 0.050
+        - center: [0.112, -0.030, -0.012]
+          radius: 0.038
+      lh_hand_base_link:
+        - center: [0.0, 0.0, 0.020]
+          radius: 0.045
+        - center: [0.0, 0.0, 0.058]
+          radius: 0.050
+        - center: [0.0, 0.0, 0.095]
+          radius: 0.045
+        - center: [0.0, -0.015, 0.135]
+          radius: 0.035
+        - center: [0.0, 0.015, 0.135]
+          radius: 0.035
+        - center: [0.018, -0.036, 0.070]
+          radius: 0.022
+        - center: [0.030, -0.046, 0.105]
+          radius: 0.022
+
+      # --- Right arm (active) ---
+      right_shoulder_pitch_link:
+        - center: [0.0, -0.025, -0.015]
+          radius: 0.055
+        - center: [0.0, -0.070, -0.015]
+          radius: 0.052
+      right_shoulder_roll_link:
+        - center: [-0.034, -0.003, -0.020]
+          radius: 0.060
+        - center: [-0.034, -0.003, -0.065]
+          radius: 0.060
+        - center: [-0.034, -0.003, -0.105]
+          radius: 0.046
+      right_shoulder_yaw_link:
+        - center: [0.010, 0.004, -0.025]
+          radius: 0.054
+        - center: [0.012, 0.004, -0.070]
+          radius: 0.056
+        - center: [0.016, -0.010, -0.108]
+          radius: 0.046
+      right_elbow_link:
+        - center: [0.005, 0.027, -0.007]
+          radius: 0.050
+        - center: [0.045, 0.027, -0.007]
+          radius: 0.052
+        - center: [0.085, 0.027, -0.007]
+          radius: 0.050
+        - center: [0.112, 0.030, -0.012]
+          radius: 0.038
+      rh_hand_base_link:
+        - center: [0.0, 0.0, 0.020]
+          radius: 0.045
+        - center: [0.0, 0.0, 0.058]
+          radius: 0.050
+        - center: [0.0, 0.0, 0.095]
+          radius: 0.045
+        - center: [0.0, 0.015, 0.135]
+          radius: 0.035
+        - center: [0.0, -0.015, 0.135]
+          radius: 0.035
+        - center: [0.018, 0.036, 0.070]
+          radius: 0.022
+        - center: [0.030, 0.046, 0.105]
+          radius: 0.022
+
+    self_collision_ignore:
+      pelvis_link:
+        - waist_roll_link
+        - waist_yaw_link
+      waist_roll_link:
+        - pelvis_link
+        - waist_yaw_link
+      waist_yaw_link:
+        - pelvis_link
+        - waist_roll_link
+        - left_shoulder_pitch_link
+        - left_shoulder_roll_link
+        - left_shoulder_yaw_link
+        - left_elbow_link
+        - lh_hand_base_link
+        - right_shoulder_pitch_link
+        - right_shoulder_roll_link
+        - right_shoulder_yaw_link
+        - right_elbow_link
+        - rh_hand_base_link
+      left_shoulder_pitch_link:
+        - waist_yaw_link
+        - left_shoulder_roll_link
+        - left_shoulder_yaw_link
+        - lh_hand_base_link
+      left_shoulder_roll_link:
+        - waist_yaw_link
+        - left_shoulder_pitch_link
+        - left_shoulder_yaw_link
+        - left_elbow_link
+        - lh_hand_base_link
+      left_shoulder_yaw_link:
+        - waist_yaw_link
+        - left_shoulder_pitch_link
+        - left_shoulder_roll_link
+        - left_elbow_link
+        - lh_hand_base_link
+      left_elbow_link:
+        - left_shoulder_roll_link
+        - left_shoulder_yaw_link
+        - lh_hand_base_link
+        - waist_yaw_link
+        - pelvis_link
+      lh_hand_base_link:
+        - left_shoulder_pitch_link
+        - left_shoulder_roll_link
+        - left_shoulder_yaw_link
+        - left_elbow_link
+        - waist_yaw_link
+        - pelvis_link
+      right_shoulder_pitch_link:
+        - waist_yaw_link
+        - right_shoulder_roll_link
+        - right_shoulder_yaw_link
+        - rh_hand_base_link
+      right_shoulder_roll_link:
+        - waist_yaw_link
+        - right_shoulder_pitch_link
+        - right_shoulder_yaw_link
+        - right_elbow_link
+        - rh_hand_base_link
+      right_shoulder_yaw_link:
+        - waist_yaw_link
+        - right_shoulder_pitch_link
+        - right_shoulder_roll_link
+        - right_elbow_link
+        - rh_hand_base_link
+      right_elbow_link:
+        - right_shoulder_roll_link
+        - right_shoulder_yaw_link
+        - rh_hand_base_link
+        - waist_yaw_link
+        - pelvis_link
+      rh_hand_base_link:
+        - right_shoulder_pitch_link
+        - right_shoulder_roll_link
+        - right_shoulder_yaw_link
+        - right_elbow_link
+        - waist_yaw_link
+        - pelvis_link
+
+    self_collision_buffer:
+      pelvis_link: 0.015
+      waist_roll_link: 0.015
+      waist_yaw_link: 0.020
+      left_shoulder_pitch_link: 0.005
+      left_shoulder_roll_link: 0.005
+      left_shoulder_yaw_link: 0.005
+      left_elbow_link: 0.005
+      lh_hand_base_link: 0.010
+      right_shoulder_pitch_link: 0.005
+      right_shoulder_roll_link: 0.005
+      right_shoulder_yaw_link: 0.005
+      right_elbow_link: 0.005
+      rh_hand_base_link: 0.010
+
+    # Lock waist + all left arm joints.
+    # Left arm positions are DEFAULTS — updated at runtime with actual joint
+    # positions before building the planner.
+    lock_joints:
+      waist_roll_joint: 0.0
+      waist_yaw_joint: 0.0
+      left_shoulder_pitch_joint: 0.0
+      left_shoulder_roll_joint: 0.0
+      left_shoulder_yaw_joint: 0.0
+      left_elbow_joint: 0.0
+      left_wrist_roll_joint: 0.0
+
+    cspace:
+      joint_names:
+        - right_shoulder_pitch_joint
+        - right_shoulder_roll_joint
+        - right_shoulder_yaw_joint
+        - right_elbow_joint
+        - right_wrist_roll_joint
+      # q=0: shoulder roll has -10deg baked into URDF origin
+      default_joint_position:
+        - 0.0     # right shoulder pitch
+        - 0.0     # right shoulder roll
+        - 0.0     # right shoulder yaw
+        - 0.0     # right elbow
+        - 0.0     # right wrist roll
+      null_space_weight:
+        - 1.0
+        - 1.0
+        - 0.8
+        - 0.8
+        - 1.0
+      cspace_distance_weight:
+        - 1.0
+        - 1.0
+        - 0.8
+        - 0.8
+        - 1.0
+      max_acceleration: 15.0
+      max_jerk: 500.0
+  load_dynamics: false

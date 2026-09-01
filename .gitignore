@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.runtime/
+assets/
+runs/
+recordings/
+artifacts/
+*.mp4
+*.log
+sensor_data.jsonl
+frame_*.png
+tests/tactile_smoke_output.txt
