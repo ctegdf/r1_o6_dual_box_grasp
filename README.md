@@ -19,7 +19,7 @@
 | `courier_box_m` | `rootback3cm-force10p5n-v41` | 1.0 kg | 0.30 x 0.22 x 0.20 m | 0.270 m | 10.5 N | 0.16 m | `done(status=lifted)` |
 | `foam_box` | `flat-palm-v19` | 0.5 kg | 0.35 x 0.24 x 0.25 m | 0.295 m | 11.0 N | 0.20 m | `done(status=lifted)`；实测上升 0.1989 m |
 
-两次运行都使用 `robot_root_x_offset=-0.03 m` 和 `clamp_x_offset=-0.03 m`。成功判定同时看两个条件：服务端返回 `done(status=lifted)`，并且箱体实际抬升至少 0.15 m。泡沫箱在抬升末段会出现约 30-35 度旋转，这是当前实验中的已知现象。
+两类对象的验证基线都使用 `robot_root_x_offset=-0.03 m` 和 `clamp_x_offset=-0.03 m`。成功判定同时看两个条件：服务端返回 `done(status=lifted)`，并且箱体实际抬升至少 0.15 m。泡沫箱在抬升末段会出现约 30-35 度旋转，这是当前实验中的已知现象。
 
 ## 项目内容
 
